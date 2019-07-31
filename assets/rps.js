@@ -60,14 +60,6 @@ $("#playerTwo").on("click", ".p2Button", function() {
   // console.log(player2Choice);
 });
 
-$("#player1Btn").on("click", function(){
-// alert("working!")
-event.preventDefault();
-var br = $("<div>")
-var p1Chat = $("#player1Chat").val().trim()
-
-$(".chatBox").append("Player 1: " + p1Chat, br);
-})
 
 
 database.ref().on("value", function (childSnapshot) {
@@ -83,7 +75,7 @@ database.ref().on("value", function (childSnapshot) {
   //   alert("working!")
   // }
 
-  // if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")) {}
+  if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")) {
   
    if (
       (p1Choice === "Rock" && p2Choice === "Scissors") ||
@@ -93,7 +85,7 @@ database.ref().on("value", function (childSnapshot) {
       {
       p1Wins++;
       p2Losses++;
-      $("#display").text("Player 1 WINS!!!")
+      $("#display").text("Player 1 WINS!!! Play again!")
       clear();
       } 
      else if (
@@ -102,14 +94,14 @@ database.ref().on("value", function (childSnapshot) {
       (p2Choice === "Paper" && p1Choice === "Rock")){
       p2Wins++;
       p1Losses++;
-      $("#display").text("Player 2 WINS!!!")
+      $("#display").text("Player 2 WINS!!! Play again!")
       clear();
     } else if (p1Choice === p2Choice) {
       ties++;
       $("#display").text("Tie Game, Play Again.")
       clear();
     }
-
+}
     // console.log(p1Wins);
     $("#p1Wins").text(p1Wins)
     // console.log("player 1 wins: ", p1Wins);
@@ -125,33 +117,76 @@ database.ref().on("value", function (childSnapshot) {
   )
   
   function clear () {
-
-    database.ref().remove()
+    database.ref().child("player1").remove()
+    database.ref().child("player2").remove()
   }
 
 
 
 
+  $("#player1Btn").on("click", function(){
+    // alert("working!")
+    event.preventDefault();
+    // var br = $("<div>")
+    var p1Chat = $("#player1Chat").val().trim()
+    
+    // $(".chatBox").append("Player 1: " + p1Chat, br);
+    
+    var playerChat = {
+      player1Chat: p1Chat,
+    }
+    database.ref("p1chats").push(playerChat);
+    $("#player1Chat").val("")
+    
+    })
+
+    $("#player2Btn").on("click", function(){
+      // alert("working!")
+      event.preventDefault();
+      // var br = $("<div>")
+      var p2Chat = $("#player2Chat").val().trim()
+      
+      // $(".chatBox").append("Player 2: " + p2Chat, br);
+      
+      var playerChat = {
+        player2Chat: p2Chat,
+      }
+      database.ref("p2chats").push(playerChat);
+      $("#player2Chat").val("")
+
+      //pull chat data from database and display on screen
+      
+      })
+  
 
 
 
-  //  // function that allows the user to click a still gif and turn it on or off
-  //  $("#displayGifs").on("click", ".gif", function() {
-  //   var state = $(this).attr("data-state");
+//////
 
+database.ref("p1chats").on("child_added", function (snapshot) {
+  var ptext = (snapshot.val().player1Chat);
+   var div = $("<div>")
+   var p = "Player 1: "
+   div.append(p)
+   div.append(ptext)
+    // var p1text = childSnapshot.val().player1Chat;
+    $(".chatBox").prepend(div);
+  })
 
+//this works//
+database.ref("p2chats").on("child_added", function (snapshot) {
+  var p2text = (snapshot.val().player2Chat);
+   var div2 = $("<div>")
+   var p2 = "Player 2: "
+   div2.append(p2)
+   div2.append(p2text)
+    // var p1text = childSnapshot.val().player1Chat;
+    $(".chatBox").prepend(div2);
+  })
 
+// this works //
 
-
-
-
-
-
-
-
-
-
-
+document.ready( database.ref().remove())
 
 
 
