@@ -19,18 +19,33 @@
       
 
       
-<div class="playerBox"  id="playerOne">
+<div class="playerBox" id="playerOne" data-live="false">
   <span> Player 1: <br>
-    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque voluptate in eius! Quia ut inventore perspiciatis laudantium vitae magnam adipisci neque voluptatum explicabo?</span>
+    <input type="button" class="p1Button" data-val="false" id="p1Rock" value="Rock">
+    <input type="button" class="p1Button" data-val="false" id="p1Paper" value="Paper">
+    <input type="button" class="p1Button" data-val="false" id="p1Scissors" value="Scissors">
+  </span>
 </div>
 <div class="playerBox" id="gameCenter"> game display here
-
-  <div id="display"></div>
+  
+  <div id="display"> display box</div>
+    
+ Player One Wins: <div id="p1Wins">0</div>
+ Player One Losses: <div id="p1Losses">0</div>
+ Player Two Wins: <div id="p2Wins">0</div>
+ Player Two Losses: <div id="p2Losses">0</div>
+ Ties: <div id="ties">0</div>
 </div>
 
-<div class="playerBox" id="playerTwo">
+
+
+<div class="playerBox" id="playerTwo" data-live="false">
+
   <span>Player 2: <br> 
-    <br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem beatae officiis laboriosam aperiam illum, aliquid odio fugit? Earum voluptatem sit culpa consectetur odio provident et?</span>
+    <input type="button" class="p2Button" data-val="false" id="p2Rock" value="Rock">
+    <input type="button" class="p2Button" data-val="false" id="p2Paper" value="Paper">
+    <input type="button" class="p2Button" data-val="false" id="p2Scissors" value="Scissors">
+  </span>
 </div>
 
 

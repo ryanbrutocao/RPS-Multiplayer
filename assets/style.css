@@ -5,3 +5,12 @@
   float: left;
 
 }
+
+#display {
+  border: 2px solid blue;
+  height: 100px;
+  width: 100px;
+}
+
+.player1 {background-color: grey;}
+.player2 {background-color: grey;}
