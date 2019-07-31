@@ -60,6 +60,15 @@ $("#playerTwo").on("click", ".p2Button", function() {
   // console.log(player2Choice);
 });
 
+$("#player1Btn").on("click", function(){
+// alert("working!")
+event.preventDefault();
+var br = $("<div>")
+var p1Chat = $("#player1Chat").val().trim()
+
+$(".chatBox").append("Player 1: " + p1Chat, br);
+})
+
 
 database.ref().on("value", function (childSnapshot) {
   var p1Choice = childSnapshot.val().player1;
@@ -119,6 +128,7 @@ database.ref().on("value", function (childSnapshot) {
 
     database.ref().remove()
   }
+
 
 
 
