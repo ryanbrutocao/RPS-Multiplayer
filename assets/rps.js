@@ -27,7 +27,7 @@ $("#playerOne").on("click", ".p1Button", function() {
   event.preventDefault();
   var player1Choice = $(this).attr("value");
   $(this).attr("data-val", "true");
-  $("#playerOne").attr("data-p1-live", "true");
+  // $("#playerOne").attr("data-p1-live", "true");
   
   var playerData = {
     player1: player1Choice
@@ -45,7 +45,7 @@ $("#playerTwo").on("click", ".p2Button", function() {
   event.preventDefault();
   var player2Choice = $(this).attr("value");
   $(this).attr("data-val", "true");
-  $("#playerTwo").attr("data-p2-live", "true");
+  // $("#playerTwo").attr("data-p2-live", "true");
   
   var playerData = {
     player2: player2Choice
@@ -73,14 +73,14 @@ database.ref().on("value", function (childSnapshot) {
   // if ($("#playerOne").val("data-live", "true") &&  $("#playerTwo").val("data-live", "true")){
     //   alert("working!")
   // }
+  // if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")){
+  // }
   if ((p2Choice === "Rock") || (p2Choice === "Paper") || (p2Choice === "Scissors")){
     $("#p2picked").attr("style","background-color: chartreuse;")
   }
-  if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")){
-    $("#p1picked").attr("style","background-color: chartreuse;")
-  }
-
+  
   if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")) {
+    $("#p1picked").attr("style","background-color: chartreuse;")
   
    if (
      (p1Choice === "Rock" && p2Choice === "Scissors") ||
