@@ -33,9 +33,9 @@ $("#playerOne").on("click", ".p1Button", function() {
     player1: player1Choice
     }
   database.ref().update(playerData);
-  if($("#playerOne").val("data-p1-live", "true")) {
-    $("#p1picked").attr("style","background-color: chartreuse;")
-  }
+  // if($("#playerOne").val("data-p1-live", "true")) {
+  //   $("#p1picked").attr("style","background-color: chartreuse;")
+  // }
   
   // console.log(player1Choice);
 }); 
@@ -52,9 +52,9 @@ $("#playerTwo").on("click", ".p2Button", function() {
  
   }
   database.ref().update(playerData);
-  if($("#playerTwo").val("data-p2-live", "true")) {
-    $("#p2picked").attr("style","background-color: chartreuse;")
-  } 
+  // if($("#playerTwo").val("data-p2-live", "true")) {
+  //   $("#p2picked").attr("style","background-color: chartreuse;")
+  // } 
   
   // console.log(player2Choice);
 });
@@ -73,6 +73,12 @@ database.ref().on("value", function (childSnapshot) {
   // if ($("#playerOne").val("data-live", "true") &&  $("#playerTwo").val("data-live", "true")){
     //   alert("working!")
   // }
+  if ((p2Choice === "Rock") || (p2Choice === "Paper") || (p2Choice === "Scissors")){
+    $("#p2picked").attr("style","background-color: chartreuse;")
+  }
+  if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")){
+    $("#p1picked").attr("style","background-color: chartreuse;")
+  }
 
   if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")) {
   
@@ -108,7 +114,7 @@ database.ref().on("value", function (childSnapshot) {
     // console.log("player 1 wins: ", p1Wins);
     $("#p1Losses").text(p1Losses);
     // console.log("player 1 losses: ", p1Losses);
-    $("#ties").text(ties)
+    $(".ties").text(ties)
     // console.log("ties: ", ties);
     $("#p2Wins").text(p2Wins)
     // console.log("player 2 wins: ", p2Wins);
@@ -124,7 +130,6 @@ database.ref().on("value", function (childSnapshot) {
     
   }
   function colorClear () {
-  
     $("#playerOne").val("data-p1-live", "false");
     $("#playerTwo").val("data-p2-live", "false")
      $("#p1picked").attr("style","background-color: white;");
