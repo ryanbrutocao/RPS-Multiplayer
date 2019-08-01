@@ -1,25 +1,74 @@
+html {
+  background-color:red;
+}
+
 .playerBox {
   border: 2px black solid;
-  height:400px;
-  width: 30%;
+  background-color: grey;
+margin-left:7.33%;
+  height:auto;
+  width: 40%;
   float: left;
 
 }
-
+.jumbotron {
+  width:90%;
+  height: 90%
+}
+.container.jumbotron.jumbotron-fluid {
+  padding:1%;
+}
+#game.row {
+  height: auto;
+}
+#gameCenter {
+ width: 80%;
+  padding:0;
+  margin-bottom: 2%;
+}
+#gameCenter.playerBox {
+margin-left:10%;
+margin-bottom: 0;
+}
+.scores.row{
+ position: relative;
+}
+.p1scores.col-5{
+ position:relative;
+  
+}
 #display {
-  border: 2px solid blue;
+  border: 2px solid rgb(22, 22, 39);
   height: 100px;
   width: 100px;
+  background-color: rgb(253, 216, 180);
+ 
 }
-
-.player1 {background-color: grey;}
-.player2 {background-color: grey;}
-
+.scores {
+  flex-direction: row;
+  float: left;
+}
 .chatBox {
   flex-direction: row;
   float: left;
-
+  margin-left:25%;
   height: 150px;
   width: 50%;
   border: 2px solid black;
+  background-color: antiquewhite;
 }
+.playerChat {
+  background-color: rgb(255, 255, 255);
+  width: 70%;
+ 
+}
+.card {
+  width: 90%;
+  align-content: space-around;
+}
+.bottom {
+  margin-bottom: 4%;
+}
+/* .chatBox {
+  margin: 10 auto;
+} */

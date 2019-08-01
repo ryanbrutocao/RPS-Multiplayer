@@ -1,10 +1,3 @@
-var playerOneRock = false;
-var playerOnePaper = false;
-var playerOneScissors = false;
-
-var playerTwoRock = false;
-var playerTwoPaper = false;
-var playerTwoScissors = false;
 
 var p1Wins = 0;
 var p1Losses = 0;
@@ -34,12 +27,15 @@ $("#playerOne").on("click", ".p1Button", function() {
   event.preventDefault();
   var player1Choice = $(this).attr("value");
   $(this).attr("data-val", "true");
-  $("#playerOne").attr("data-live", "true");
+  $("#playerOne").attr("data-p1-live", "true");
   
   var playerData = {
     player1: player1Choice
     }
   database.ref().update(playerData);
+  if($("#playerOne").val("data-p1-live", "true")) {
+    $("#p1picked").attr("style","background-color: chartreuse;")
+  }
   
   // console.log(player1Choice);
 }); 
@@ -49,13 +45,16 @@ $("#playerTwo").on("click", ".p2Button", function() {
   event.preventDefault();
   var player2Choice = $(this).attr("value");
   $(this).attr("data-val", "true");
-  $("#playerTwo").attr("data-live", "true");
+  $("#playerTwo").attr("data-p2-live", "true");
   
   var playerData = {
     player2: player2Choice
  
   }
   database.ref().update(playerData);
+  if($("#playerTwo").val("data-p2-live", "true")) {
+    $("#p2picked").attr("style","background-color: chartreuse;")
+  } 
   
   // console.log(player2Choice);
 });
@@ -70,26 +69,26 @@ database.ref().on("value", function (childSnapshot) {
 
   console.log(p1Choice);
   console.log(p2Choice);
-
+  
   // if ($("#playerOne").val("data-live", "true") &&  $("#playerTwo").val("data-live", "true")){
-  //   alert("working!")
+    //   alert("working!")
   // }
 
   if ((p1Choice === "Rock") || (p1Choice === "Paper") || (p1Choice === "Scissors")) {
   
    if (
-      (p1Choice === "Rock" && p2Choice === "Scissors") ||
+     (p1Choice === "Rock" && p2Choice === "Scissors") ||
       (p1Choice === "Scissors" && p2Choice === "Paper") || 
       (p1Choice === "Paper" && p2Choice === "Rock")
       ) 
       {
-      p1Wins++;
+        p1Wins++;
       p2Losses++;
       $("#display").text("Player 1 WINS!!! Play again!")
       clear();
       } 
      else if (
-      (p2Choice === "Rock" && p1Choice === "Scissors") ||
+       (p2Choice === "Rock" && p1Choice === "Scissors") ||
       (p2Choice === "Scissors" && p1Choice === "Paper") || 
       (p2Choice === "Paper" && p1Choice === "Rock")){
       p2Wins++;
@@ -100,8 +99,10 @@ database.ref().on("value", function (childSnapshot) {
       ties++;
       $("#display").text("Tie Game, Play Again.")
       clear();
+    
+
     }
-}
+  }
     // console.log(p1Wins);
     $("#p1Wins").text(p1Wins)
     // console.log("player 1 wins: ", p1Wins);
@@ -119,9 +120,19 @@ database.ref().on("value", function (childSnapshot) {
   function clear () {
     database.ref().child("player1").remove()
     database.ref().child("player2").remove()
+    setTimeout(function(){colorClear()},10);
+    
   }
-
-
+  function colorClear () {
+  
+    $("#playerOne").val("data-p1-live", "false");
+    $("#playerTwo").val("data-p2-live", "false")
+     $("#p1picked").attr("style","background-color: white;");
+     $("#p2picked").attr("style","background-color: white;")
+  
+  }
+  
+  
 
 
   $("#player1Btn").on("click", function(){

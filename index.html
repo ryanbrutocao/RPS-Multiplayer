@@ -18,47 +18,68 @@
       <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>   
       
 
+<div class="jumbotron mx-auto">
+  <h1 class="display-5 text-center ">Rock Paper Scissors!</h1>
+  <!-- <p class="lead">Challenge your friend to a game of RPS </p> -->
+  <div class="playerBox shadow-sm p-3 mb-5 bg-white rounded" id="gameCenter"> <!--game display here -->
+   <div class="row">
+     <div class="col-4" id="playerOne"  data-p1-live="false">
+
+       <div id="p1picked"> Player 1: </div> <br>
+         <input type="button" class="p1Button" data-val="false" id="p1Rock" value="Rock">
+         <input type="button" class="p1Button" data-val="false" id="p1Paper" value="Paper">
+         <input type="button" class="p1Button" data-val="false" id="p1Scissors" value="Scissors">
       
-<div class="playerBox" id="playerOne" data-live="false">
-  <span> Player 1: <br>
-    <input type="button" class="p1Button" data-val="false" id="p1Rock" value="Rock">
-    <input type="button" class="p1Button" data-val="false" id="p1Paper" value="Paper">
-    <input type="button" class="p1Button" data-val="false" id="p1Scissors" value="Scissors">
-  </span>
-  <div><br>
-    Player 1 Chat: <input type="text" id="player1Chat" value="">
-    <input type="button" id="player1Btn" value="submit" data-name="player 1:"></button>
-  </div>
-</div>
-<div class="playerBox" id="gameCenter"> game display here
-  
-  <div id="display"> display box</div>
+
+     </div>
+
+     <div class="col-4">
+
+       <div class="mx-auto rounded" id="display"> display box</div>
+
+     </div>
+     
+     <div class="col-4" id="playerTwo"  data-p2-live="false">
+        <div id="p2picked">Player 2:</div><br> 
+          <input type="button" class="p2Button" data-val="false" id="p2Rock" value="Rock">
+          <input type="button" class="p2Button" data-val="false" id="p2Paper" value="Paper">
+          <input type="button" class="p2Button" data-val="false" id="p2Scissors" value="Scissors">
+        
     
- Player One Wins: <div id="p1Wins">0</div>
- Player One Losses: <div id="p1Losses">0</div>
- Player Two Wins: <div id="p2Wins">0</div>
- Player Two Losses: <div id="p2Losses">0</div>
- Ties: <div id="ties">0</div>
-</div>
+     </div>
 
-
-
-<div class="playerBox" id="playerTwo" data-live="false">
-
-  <span>Player 2: <br> 
-    <input type="button" class="p2Button" data-val="false" id="p2Rock" value="Rock">
-    <input type="button" class="p2Button" data-val="false" id="p2Paper" value="Paper">
-    <input type="button" class="p2Button" data-val="false" id="p2Scissors" value="Scissors">
-  </span>
-  <div><br>
-    Player 2 Chat: <input type="text" id="player2Chat" value="">
-    <input type="button" id="player2Btn" value="submit" data-name="player 2:"></button>
-  
-
+   </div> 
+      
   </div>
+  <hr class="my-4">
+  <div class="playerBox shadow-sm p-3 mb-5 bg-white rounded text-center" id="playerOne">
+
+    Wins: <div id="p1Wins">0</div>
+    Losses: <div id="p1Losses">0</div>
+    Ties: <div id="ties">0</div>
+    <div><br>
+      Player 1 chat:<input type="text" id="player1Chat" class="playerChat rounded" value="">
+      <input type="button" class="rounded" id="player1Btn" value="submit" data-name="player 1:"></button>
+    </div>
+  </div>
+
+  <div class="playerBox shadow-sm p-3 mb-5 bg-white rounded text-center" id="playerTwo">
+  
+    Wins: <div id="p2Wins">0</div>
+    Losses: <div id="p2Losses">0</div>
+    Ties: <div id="ties">0</div>
+    <div><br>
+      Player 2 Chat: <input type="text" id="player2Chat" class="playerChat rounded" value="">
+      <input type="button" class="rounded" id="player2Btn" value="submit" data-name="player 2:"></button>
+    </div>
+  </div>
+  
 </div>
+
+
+
 <br>
-<div class="chatBox"><span></span>
+<div class="chatBox shadow-sm p-3 mb-5 bg-white rounded">
 </div>
 
 
