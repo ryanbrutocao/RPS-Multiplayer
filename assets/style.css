@@ -13,7 +13,8 @@ margin-left:7.33%;
 }
 .jumbotron {
   width:90%;
-  height: 90%
+  /* height: 150% !important; */
+  padding-bottom: 13% !important;
 }
 .container.jumbotron.jumbotron-fluid {
   padding:1%;
@@ -42,7 +43,7 @@ margin-bottom: 0;
   height: 100px;
   width: 100px;
   background-color: rgb(253, 216, 180);
- 
+ text-align: center;
 }
 .scores {
   flex-direction: row;
