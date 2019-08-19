@@ -1,1 +1,3 @@
 # rock-paper-scissors-game
+
+The assignment was to build a Rock Paper Scissors game with a live chat function. The most difficult part of this project for me was building the live chat function as well as adding an extra feature to show when the first player has selected their choice. I was able to resolve the chat issues by creating children for each user (something that we had not covered in class at that point.) 
